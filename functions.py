@@ -25,7 +25,7 @@ def create_samples(same=1, distribution = 'bernoulli'):
         a_dist, b_dist = [], []
     return a_dist, b_dist
 
-def bernulli_test(a_dist, b_dist, p_value=0.05):
+def bernulli_test(a_dist, b_dist, p_value=0.05, additional_information = False):
     # Считаем результаты теста
 
     A_nobs = len(a_dist)
@@ -44,23 +44,19 @@ def bernulli_test(a_dist, b_dist, p_value=0.05):
     p_value_binom_test = sms.binom_test(count=[A_counts, B_counts], nobs=[A_nobs, B_nobs])
     chi2, chi2_p, df, arr = sc.stats.chi2_contingency(dataframe, correction=True)  # для таблиц 2х2 нужно делать коррекцию в хи-квадрат критерии
     z_score, ztest_pvalue = sms.proportions_ztest(count=[A_counts, B_counts], nobs=[A_nobs, B_nobs])
-    #A_conf_int = sms.proportion_confint(count=A_counts, nobs=A_nobs, method='binom_test')
-    #B_conf_int = sms.proportion_confint(count=B_counts, nobs=B_nobs, method='binom_test')
-    """
-    print('CONCLUSIONS')
-    print('------')
-    print('A group proportion = ', round(A_prop, 5))
-    print('B group proportion = ', round(B_prop, 5))
-    print('ABS Proportions uplift = ', round(A_B_uplift_abs, 5))
-    print('Relative Proportions uplift = ', round(A_B_uplift_rel, 5))
-    print()
-    print('p_value for binom test = ', p_value_binom_test)
-    print('p_value for chisq test = ', chi2_p)
-    print('p_value for z test = ', ztest_pvalue)
-    print()
-    print('A confidence interval = ', A_conf_int)
-    print('B confidence interval = ', B_conf_int)
-    """
+
+    if additional_information == True:
+        print('CONCLUSIONS')
+        print('------')
+        print('A group proportion = ', round(A_prop, 5))
+        print('B group proportion = ', round(B_prop, 5))
+        print('ABS Proportions uplift = ', round(A_B_uplift_abs, 5))
+        print('Relative Proportions uplift = ', round(A_B_uplift_rel, 5))
+        print()
+        print('p_value for binom test = ', p_value_binom_test)
+        print('p_value for chisq test = ', chi2_p)
+        print('p_value for z test = ', ztest_pvalue)
+
 
     return ztest_pvalue
 

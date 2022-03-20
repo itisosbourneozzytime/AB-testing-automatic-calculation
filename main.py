@@ -1,5 +1,8 @@
 from functions import *
 from tests import *
+from statsmodels import stats
+
+import numpy as np
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
@@ -17,4 +20,4 @@ if __name__ == '__main__':
     print('Quality check')
     print(test_bernulli_aa(0.05))
     print(test_bernulli_ab(0.05))
-
+    print(test_bernulli_info(p_value=0.05, additional_information=True))

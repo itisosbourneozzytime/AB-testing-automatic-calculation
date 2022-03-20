@@ -14,7 +14,7 @@ def test_bernulli_aa(p_value=0.05):
         return 'test_failed'
 
 
-def test_bernulli_ab( p_value=0.05):
+def test_bernulli_ab(p_value=0.05):
     a_dist, b_dist = create_samples(same=0, distribution = 'bernoulli')
     result = bernulli_test(a_dist, b_dist, p_value)  # p-value
     # проверить логику
@@ -23,6 +23,14 @@ def test_bernulli_ab( p_value=0.05):
     else:
         return 'test_failed'
 
+def test_bernulli_info(p_value=0.05, additional_information = True):
+    a_dist, b_dist = create_samples(same=0, distribution = 'bernoulli')
+    result = bernulli_test(a_dist, b_dist, p_value, additional_information = additional_information)  # p-value
+    # проверить логику
+    if result <= p_value:
+        return 'test_passed'
+    else:
+        return 'test_failed'
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
