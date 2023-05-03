@@ -1,9 +1,17 @@
-﻿План разработки тестирования: 
-Done: Version 1. Можно автоматизировать проверку стат.значимости событий (распределение Бернулли) \
-Done: Version 2. Реализована проверка множественных гипотез: для начала Холма-Бонферрони \
-TBD: Version 2.1 Объединить код для проверки 2 и множественной проверки гипотез \
-Version 3. Добавить Байеса \
-Version 4. Можно автоматизировать проверку стат.значимости выручки (бустреп,распределение хи квадрат, бернулли * экспоненциальное?) \
-Version 5. Все это обернуто в микросервис, положено в докер и развернуто в кубернетесе \
-Version 6. Все это проверено на больших числах на стабильность результатов \
-Version 7. Мониторинги метрик \
+Development Testing Plan:
+
+Done: Version 1. Automated testing of statistical significance of events: Bernoulli distribution.
+
+Done: Version 2. Implemented multiple hypothesis testing, starting with the Holm-Bonferroni method.
+
+Fix TBD: Combine the code for testing multiple hypotheses with the multiple hypothesis testing.
+
+Version 3. Add Bayesian testing.
+
+Version 4. Automated testing of statistical significance of revenue: bootstrap, chi-square distribution, Bernoulli * exponential?.
+
+Version 5. All of the above is wrapped into a microservice, deployed in Docker, and deployed in Kubernetes.
+
+Version 6. All of the above is tested on large numbers for the stability of results.
+
+Version 7. Monitoring of metrics.
