@@ -29,7 +29,7 @@ def test_bernoulli_info(p_value=0.05, additional_information = True):
     else:
         return 'test_failed'
 
-def test_multiple_comparison_abc(p_value=0.05, method = 'holm'):
+def test_multiple_comparison_abc(p_value=0.05, method = 'holm-bonferroni'):
     ndarray = create_samples(number_of_samples = 3, is_same=0, distribution='bernoulli')
     rejected = multiple_test(ndarray, p_value = p_value, method = method)
     if len(rejected) == 2:
@@ -37,7 +37,7 @@ def test_multiple_comparison_abc(p_value=0.05, method = 'holm'):
     else:
         return 'test_failed'
 
-def test_multiple_comparison_aaa(p_value=0.05, method = 'holm'):
+def test_multiple_comparison_aaa(p_value=0.05, method = 'holm-bonferroni'):
     ndarray = create_samples(number_of_samples = 3, is_same=1, distribution='bernoulli')
     rejected = multiple_test(ndarray, p_value = p_value, method = method)
     print("test :", rejected)

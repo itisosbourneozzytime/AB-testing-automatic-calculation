@@ -91,7 +91,7 @@ def bernoulli_test(a_dist, b_dist, p_value=0.05, additional_information = False)
 
     return ztest_pvalue
 
-def multiple_test(ndarray, p_value = 0.05, method = 'holm'):
+def multiple_test(ndarray, p_value = 0.05, method = 'holm-bonferroni'):
     # calculate p_vals
     number_of_samples = len(ndarray)
     pvals = {}

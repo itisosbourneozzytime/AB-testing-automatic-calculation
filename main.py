@@ -19,12 +19,12 @@ if __name__ == '__main__':
 
     print('Different samples: multitest bernoulli')
     ndarray = create_samples(number_of_samples = 4, is_same = 0, distribution= 'bernoulli')
-    result = multiple_test(ndarray, p_value = 0.05, method = 'holm')
+    result = multiple_test(ndarray, p_value = 0.05, method = 'holm-bonferroni')
     print(result)
 
     print('Quality check')
     print(test_bernoulli_aa(0.05))
     print(test_bernoulli_ab(0.05))
     print(test_bernoulli_info(p_value=0.05, additional_information=True))
-    print(test_multiple_comparison_abc(p_value=0.05, method = 'holm'))
-    print(test_multiple_comparison_aaa(p_value=0.05, method = 'holm'))
+    print(test_multiple_comparison_abc(p_value=0.05, method = 'holm-bonferroni'))
+    print(test_multiple_comparison_aaa(p_value=0.05, method = 'holm-bonferroni'))
